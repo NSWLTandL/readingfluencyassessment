@@ -3,11 +3,12 @@
    ============================================================ */
 
 /* ----------------------------------------------------------------
-   1. CONFIGURE THIS: your deployed Cloudflare Worker URL.
-   After you deploy the Worker (see README), paste its URL here.
-   Example: "https://reading-fluency-worker.your-name.workers.dev"
+   1. CONFIGURE THIS: paste the Power Automate flow URL here.
+   You get this URL after building the flow (see the chat instructions):
+   open the "When a HTTP request is received" trigger and copy its
+   "HTTP POST URL". It is long and ends in &sig=...
    ---------------------------------------------------------------- */
-const WORKER_URL = "https://REPLACE-ME.workers.dev";
+const ENDPOINT_URL = "https://REPLACE-WITH-YOUR-POWER-AUTOMATE-URL";
 
 /* ----------------------------------------------------------------
    2. Assessment items + the advice shown when "Challenging" is picked.
@@ -197,16 +198,16 @@ async function submitAssessment() {
   validationMessage.textContent = "";
 
   try {
-    const res = await fetch(WORKER_URL, {
+    // Sent as text/plain + no-cors so the browser allows the cross-site
+    // request to Power Automate. The flow reads the body with a "Parse JSON"
+    // step. The browser can't read Power Automate's reply, so a completed
+    // request is treated as success; verify the first save in the spreadsheet.
+    await fetch(ENDPOINT_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
       body: JSON.stringify(payload),
     });
-
-    if (!res.ok) {
-      const text = await res.text().catch(() => "");
-      throw new Error("Server responded " + res.status + ". " + text);
-    }
 
     showConfirmation(payload);
   } catch (err) {
