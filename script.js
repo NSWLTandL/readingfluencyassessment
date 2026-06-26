@@ -225,7 +225,7 @@ function showConfirmation(payload) {
   const confirmation = document.getElementById("confirmation");
   document.getElementById("confirmationText").textContent =
     "Saved for " + payload.StudentName + " (" + payload.TutorGroup + ").";
-  confirmation.hidden = false;
+  confirmation.style.display = "flex";
 }
 
 document.getElementById("newAssessmentBtn").addEventListener("click", () => {
