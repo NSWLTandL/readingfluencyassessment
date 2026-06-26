@@ -1,0 +1,16 @@
+# ============================================================
+# Cloudflare Worker configuration
+# ============================================================
+# "name" becomes part of your Worker URL:
+#   https://reading-fluency-worker.<your-subdomain>.workers.dev
+#
+# Change "name" if you like, but keep it lowercase with hyphens.
+
+name = "reading-fluency-worker"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# NOTE:
+# Do NOT put the Power Automate URL here. It is added separately as a
+# secret with:  npx wrangler secret put POWER_AUTOMATE_WEBHOOK_URL
+# (see the README). Secrets are encrypted and never committed to GitHub.
