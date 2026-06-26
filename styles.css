@@ -227,6 +227,11 @@ body {
 }
 
 /* ---------- Confirmation overlay ---------- */
+/* Keep the overlay hidden until JS shows it.
+   Without this, the rule below overrides the [hidden] attribute and the
+   confirmation box appears on page load. */
+.confirmation[hidden] { display: none; }
+
 .confirmation {
   position: fixed;
   inset: 0;
