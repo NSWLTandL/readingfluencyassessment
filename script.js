@@ -204,8 +204,7 @@ async function submitAssessment() {
     // request is treated as success; verify the first save in the spreadsheet.
     await fetch(ENDPOINT_URL, {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=UTF-8" },
+headers: { "Content-Type": "text/plain;charset=UTF-8" },
       body: JSON.stringify(payload),
     });
 
