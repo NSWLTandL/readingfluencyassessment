@@ -9,7 +9,6 @@
    "HTTP POST URL". It is long and ends in &sig=...
    ---------------------------------------------------------------- */
 const ENDPOINT_URL = "https://nextone.w-milligan.workers.dev/";
-
 /* ----------------------------------------------------------------
    2. Assessment items + the advice shown when "Challenging" is picked.
    The "key" matches the spreadsheet column names in the README.
