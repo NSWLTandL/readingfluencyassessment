@@ -8,7 +8,7 @@
    open the "When a HTTP request is received" trigger and copy its
    "HTTP POST URL". It is long and ends in &sig=...
    ---------------------------------------------------------------- */
-const ENDPOINT_URL = "https://default87acc4d14313423d9e2fa1f8fd3025.f6.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/109b16894cd34f6eae4c9b6b9dc34b22/triggers/manual/paths/invoke?api-version=1";
+const ENDPOINT_URL = "https://default87acc4d14313423d9e2fa1f8fd3025.f6.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/109b16894cd34f6eae4c9b6b9dc34b22/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=e4Z022rY2-iFHKdRdsUx90n-fr4h6NAwrYSa5dPneoA";
 
 /* ----------------------------------------------------------------
    2. Assessment items + the advice shown when "Challenging" is picked.
